@@ -1,0 +1,52 @@
+// write length of table
+FUNCTION length_table(n) : INTEGER
+VAR
+    n : integer
+BEGIN
+    REPEAT
+        write("write the length of the table")
+        read(n)
+    UNTIL (n>=2)
+    RETURN n ;
+END
+
+// fill the table
+PROCEDURE fill_table(arr,n)
+VAR
+    arr : ARRAY_OF integer[];
+    let i: integer
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        write ("write the element", i+1)
+        read(arr[i])
+    END_FOR
+END
+
+// Insertion sort
+FUNCTION insert_sort(arr) : ARRAY_OF integer
+VAR
+    j, i: integer
+BEGIN
+    FOR i FROM 1 TO n STEP 1  DO
+        key = array[i];
+        j = i - 1;
+        WHILE (key < array[j] && j >= 0) DO
+            array[j + 1] = array[j];
+            j=j-1;
+        END_WHILE
+        array[j + 1] = key;
+    END_FOR
+END
+
+ALGORITHM checkpoint_algo4
+VAR
+    n:integer
+    tab : ARRAY_OF integer[];
+BEGIN
+// call procedure length_table 
+    n=length_table(n);
+// call function fill_table
+    fill_table(tab,n);
+// call function insertion_sort
+    insert_sort(tab,n);
+END
